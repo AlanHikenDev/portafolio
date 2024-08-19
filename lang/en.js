@@ -1,3 +1,8 @@
 export default {
-    welcome: "Welcome"
+  welcome: "Welcome",
+  navbar: {
+    home: "Home",
+    experience: "Experience",
+    about: "About"
   }
+}

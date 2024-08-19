@@ -10,7 +10,6 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
-
   modules: ["@nuxtjs/i18n"],
   i18n: {
     locales: [

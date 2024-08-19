@@ -1,3 +1,8 @@
 export default {
-    welcome: "Bienvenido"
+    welcome: "Bienvenido",
+    navbar: {
+      home: "Iicio",
+      experience: "Experiencia",
+      about: "Acerca de"
+    }
   }
