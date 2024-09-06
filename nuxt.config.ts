@@ -2,15 +2,13 @@
 export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
   devtools: { enabled: true },
+  ssr: false,
   css: ['~/assets/css/main.css'],
-
-  postcss: {
-    plugins: {
-      tailwindcss: {},
-      autoprefixer: {},
-    },
-  },
-  modules: ["@nuxtjs/i18n"],
+  modules: [
+    '@nuxtjs/tailwindcss',
+    "@nuxtjs/i18n",
+    require('flowbite/plugin')
+  ],
   i18n: {
     locales: [
       { code: 'en', iso: 'en-US', file: 'en.js' },
@@ -19,5 +17,6 @@ export default defineNuxtConfig({
     lazy: true,
     langDir: 'lang/',
     defaultLocale: 'es'
-  }
+  },
 })
+

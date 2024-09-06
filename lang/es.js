@@ -1,7 +1,7 @@
 export default {
     welcome: "Bienvenido",
     navbar: {
-      home: "Iicio",
+      home: "Inicio",
       experience: "Experiencia",
       about: "Acerca de"
     }
