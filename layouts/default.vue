@@ -1,8 +1,11 @@
 <template>
-<div class="container">
+<div class="relative">
   <SelectLang></SelectLang>
-
-  <slot />
+  <div class="relative">
+    <div class="fixed " >
+      <slot />
+    </div>
+  </div>
 </div>
 </template>
 
