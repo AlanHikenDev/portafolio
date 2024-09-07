@@ -6,6 +6,7 @@ export default defineNuxtConfig({
   css: ['~/assets/css/main.css'],
   modules: [
     '@nuxtjs/tailwindcss',
+    'nuxt-particles',
     "@nuxtjs/i18n",
     require('flowbite/plugin')
   ],
