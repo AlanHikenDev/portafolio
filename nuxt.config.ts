@@ -8,8 +8,12 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     'nuxt-particles',
     "@nuxtjs/i18n",
-    require('flowbite/plugin')
+    require('flowbite/plugin'),
+    'nuxt-auth-sanctum',
   ],
+  sanctum: {
+      baseUrl: 'http://localhost:8000', // Laravel API
+  },
   i18n: {
     locales: [
       { code: 'en', iso: 'en-US', file: 'en.js' },
@@ -20,4 +24,3 @@ export default defineNuxtConfig({
     defaultLocale: 'es'
   },
 })
-

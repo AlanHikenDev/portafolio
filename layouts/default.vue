@@ -1,19 +1,53 @@
 <template>
-<div class="relative">
-  <SelectLang></SelectLang>
   <div class="relative">
-    <div class="fixed " >
-      <slot />
+    <SelectLang></SelectLang>
+    <div class="relative">
+      <div class="fixed " >
+        <NuxtParticles
+            id="tsparticles"
+            :options="options"
+          />
+        <slot />
     </div>
   </div>
 </div>
 </template>
 
 <script setup lang="ts">
-const { locale, setLocale } = useI18n()
-const localePath = useLocalePath()
-const localSelected = ref('en')
 
+import { ref, useRuntimeConfig } from '#imports'
+import { loadFull } from 'tsparticles'
+import { tsParticles } from '@tsparticles/engine'
+
+const { mode } = useRuntimeConfig().public.particles
+
+const show = ref(false)
+
+if(import.meta.client && mode === 'custom') {
+  await loadFull(tsParticles)
+}
+
+const options = {
+  fullScreen: {
+    enable: true,
+    zIndex: -1
+  },
+  particles: {
+    color: {
+      value: "#000"
+    },
+    links: {
+      color: "#000",
+      enable: true
+    },
+    move: {
+      enable: true
+    },
+    number: {
+      value: 100
+    }
+  }
+}
 
 </script>
 
