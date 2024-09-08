@@ -13,6 +13,13 @@ export default defineNuxtConfig({
   ],
   sanctum: {
       baseUrl: 'http://localhost:8000', // Laravel API
+      redirect: {
+        keepRequestedRoute: false,
+        onLogin: '/chat',
+        onLogout: '/chat/login',
+        onAuthOnly: '/chat/login',
+        onGuestOnly: '/',
+    },
   },
   i18n: {
     locales: [
