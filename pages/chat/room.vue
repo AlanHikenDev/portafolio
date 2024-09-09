@@ -5,7 +5,7 @@
     <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
         <div v-for="(message, index) in cleanMessage" :key="index">
         <div v-if="user && user.id == message.sender.id"  class="flex items-start gap-2.5">
-            <img class="w-8 h-8 rounded-full" src="https://i.pravatar.cc/150?img=3" alt="Jese image">
+            <img class="w-10 h-10 rounded-full inline-flex self-center items-center p-1" src="https://i.pravatar.cc/150?img=3" alt="Jese image">
         <div class="flex flex-col gap-1 w-full max-w-[320px]">
             <div class="flex items-center space-x-2 rtl:space-x-reverse">
                 <span class="text-sm font-semibold text-gray-900 dark:text-white">{{message.sender.name}}</span>
@@ -83,7 +83,7 @@
             <span class="text-sm font-normal text-gray-500 dark:text-gray-400">Delivered</span>
         </div>
         
-        <img class="w-8 h-8 rounded-full" src="https://i.pravatar.cc/150?img=4" alt="Jese image">
+        <img class="w-10 h-10 rounded-full inline-flex self-center items-center p-1 " src="https://i.pravatar.cc/150?img=4" alt="Jese image">
 
         </div>
     </div>
