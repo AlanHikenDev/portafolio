@@ -5,11 +5,12 @@ export default defineNuxtConfig({
   ssr: false,
   css: ['~/assets/css/main.css'],
   modules: [
+    '@pinia/nuxt',
     '@nuxtjs/tailwindcss',
     'nuxt-particles',
     "@nuxtjs/i18n",
     require('flowbite/plugin'),
-    'nuxt-auth-sanctum',
+    'nuxt-auth-sanctum'
   ],
   sanctum: {
       baseUrl: 'http://localhost:8000', // Laravel API
