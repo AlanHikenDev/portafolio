@@ -122,21 +122,64 @@
 </template>
 
 <script setup lang="ts">
+
+import Pusher from 'pusher-js';
+import * as PusherTypes from 'pusher-js';
+
+import Echo from 'laravel-echo';
+
+const lpusher = Pusher;
+const laravelEcho = new Echo({
+    broadcaster: 'pusher',
+    key: '2e6ddbe5b99cb90b5d9e',
+    cluster: 'us2',
+    forceTLS: true
+});
 definePageMeta({
     layout: 'chatroom'
 })
 
 const useMessage = useMessageStore()
-const { getMessagePtoP ,storeMessage } = useMessage
-const { cleanMessage } = storeToRefs(useMessage)
+const { getMessagePtoP ,storeMessage, addMessage  } = useMessage
+const { cleanMessage, userTo } = storeToRefs(useMessage)
 
 const user = useSanctumUser<User>()
 
 const message = ref()
 
+const pusher = new Pusher('2e6ddbe5b99cb90b5d9e', {
+    cluster: 'us2',
+});
+
 onBeforeMount(()=>{
     getMessagePtoP()
 }) 
+
+onMounted(()=>{
+
+    const channel = pusher.subscribe('chat');
+    channel.bind('sendMessage', function ( data: any ) {
+        console.log(data);
+
+        if (data.message) {
+            const messageExists = cleanMessage.value.find(msg => msg.id === data.message.id);
+            if (!messageExists) {
+                addMessage(data.message)
+                    //messages.value.push(data.message);
+            }
+        }
+    });
+    
+    /* laravelEcho.private('chat')
+        .listen("MessageSent", (response: any) => {
+            console.log(response);
+    }); */
+
+}) 
+
+onBeforeUnmount( ( ) => {
+   pusher.unsubscribe("private-chat");
+})
 
 async function sendMessage() {
     await storeMessage(message.value)

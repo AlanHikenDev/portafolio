@@ -112,6 +112,10 @@ function addSerchParams( params: QueryParams) {
     serachParams.value = params
 }
 
+function addMessage(message :any) {
+    messageData.value.push(message)
+}
+
 
 return { 
     messageData,
@@ -126,7 +130,8 @@ return {
     updateUserAcount,
     deleteUser,
     addmessageSelectedValue,
-    addSerchParams
+    addSerchParams,
+    addMessage
  }
  
 })
