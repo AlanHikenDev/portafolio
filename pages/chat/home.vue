@@ -8,7 +8,8 @@
 
 <script setup lang="ts">
 definePageMeta({
-    layout: 'chatapp'
+    layout: 'chatapp',
+    middleware: ['sanctum:auth'],
 })
 </script>
 

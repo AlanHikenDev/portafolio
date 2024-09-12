@@ -135,8 +135,10 @@ const laravelEcho = new Echo({
     cluster: 'us2',
     forceTLS: true
 });
+
 definePageMeta({
-    layout: 'chatroom'
+    layout: 'chatroom',
+    middleware: ['sanctum:auth']
 })
 
 const useMessage = useMessageStore()

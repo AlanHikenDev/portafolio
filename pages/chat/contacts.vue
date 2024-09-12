@@ -77,7 +77,8 @@
 
 <script setup lang="ts">
 definePageMeta({
-    layout: 'chatapp'
+    layout: 'chatapp',
+    middleware: ['sanctum:auth'],
 })
 const userStore = useUserStore()
 const {getData ,addUserSelectedValue ,addSerchParams } = userStore
