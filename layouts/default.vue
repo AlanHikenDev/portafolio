@@ -1,15 +1,12 @@
 <template>
-  <div class="relative">
-    <SelectLang></SelectLang>
-    <div class="relative">
-      <div class="fixed " >
-        <NuxtParticles
-            id="tsparticles"
-            :options="options"
-          />
-        <slot />
-    </div>
-  </div>
+<div class="relative">
+  
+  <SelectLang></SelectLang>
+     <NuxtParticles
+          id="tsparticles"
+          :options="options"
+        />
+      <slot />
 </div>
 </template>
 
