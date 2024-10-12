@@ -8,7 +8,20 @@ const userSelect = ref<User>()
 
 //@ts-ignore
 const cleanUsers = computed(() => usersData.value? usersData.value.data : [])
+const fromPage = computed(() => usersData.value? usersData.value.from : 0)
+const toPage = computed(() => usersData.value? usersData.value.to : 0)
+const lastPage = computed(() => usersData.value? usersData.value.last_page : 0)
+const totalData = computed(() => usersData.value? usersData.value.total : 0)
+const currentPage = computed(() => usersData.value? usersData.value.current_page : 0)
 
+
+/* first_page_url": "http://localhost:8000/api/users?page=1",
+"from": 1,
+"last_page": 8,
+"per_page": 10,
+"prev_page_url": null,
+"to": 10,
+"total": 80 */
 const serachParams = ref<QueryParams>({
     search: '',
     size: '10',
@@ -84,8 +97,9 @@ function addUserSelectedValue (user : User) {
     userSelect.value = user 
 }
 
-function addSerchParams( params: QueryParams) {
+async function addSerchParams( params: QueryParams) {
     serachParams.value = params
+    await getData()
 }
 
 return { 
@@ -93,6 +107,11 @@ return {
     usersError,
     userSelect,
     cleanUsers,
+    fromPage ,    
+    toPage ,
+    lastPage ,
+    totalData,
+    currentPage,
     getData,
     storeUser,
     updateUserAcount,
