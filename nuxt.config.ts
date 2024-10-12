@@ -14,7 +14,7 @@ export default defineNuxtConfig({
   ],
   sanctum: {
       baseUrl: 'http://localhost:8000', // Laravel API
-      // baseUrl: 'https://www.api.alandev.tech',
+      //baseUrl: 'https://www.api.alandev.tech',
       redirect: {
         keepRequestedRoute: false,
         onLogin: '/chat',

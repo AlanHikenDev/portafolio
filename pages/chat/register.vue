@@ -60,10 +60,10 @@ import { FetchError } from 'ofetch';
 
 const client = useSanctumClient();
 const { refreshIdentity } = useSanctumAuth();
-const name = ref('alan')
-const email = ref('test3@live.com')
-const password =ref('password')
-const password_confirmation = ref('password')
+const name = ref()
+const email = ref()
+const password =ref()
+const password_confirmation = ref()
 const errors = ref()
 
 async function registerSend() {

@@ -67,10 +67,12 @@ async function sendLogin() {
         await login(userCredentials);
     } catch (error) {
         console.log(error)
+        // alert(error)
         if (error instanceof FetchError && error.response?.status === 422) {
            // here you can extract errors from a response 
            // and put it in your form for example
            console.log(error.response?._data.errors)
+           //alert(error.response?._data.errors)
            errors.value = error.response?._data.errors
         }
     }
