@@ -138,7 +138,6 @@ function findByname() {
 }
 
 function goToPage(i :string) {
-console.log(i)
 const params = 
    { search: '',
     size: '10',
