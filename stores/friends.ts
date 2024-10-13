@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 
-export const useUserStore = defineStore('user', () => {
+export const useFriendStore = defineStore('friend', () => {
     
 const usersData = ref()
 const usersError = ref()
@@ -34,7 +34,7 @@ const client = useSanctumClient();
 
 async function getData() {
     
-    const res = await client('/api/users?' + new URLSearchParams(serachParams.value).toString(), {
+    const res = await client('/api/friends?' + new URLSearchParams(serachParams.value).toString(), {
         method: "GET",
         async onResponse({ request, response, options }) {
            if (response.status == 422 ) {
@@ -88,19 +88,6 @@ async function deleteUser() {
     await getData()
 }
 
-async function addUserToFriends(user : User) {
-    addErrorValue(null)
-    const res = await client('/api/users/addFriend/'+ user.id , {
-        method: "POST",
-        async onResponse({ request, response, options }) {
-           if (response.status == 422 ) {
-                addErrorValue(response?._data.errors) 
-            }
-        },
-    })
-    await getData()
-}
-
 
 function addErrorValue(err: null) {
     usersError.value = err
@@ -130,8 +117,7 @@ return {
     updateUserAcount,
     deleteUser,
     addUserSelectedValue,
-    addSerchParams,
-    addUserToFriends
+    addSerchParams
  }
  
 })
