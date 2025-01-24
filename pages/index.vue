@@ -1,6 +1,5 @@
 <template>
-  <PureNav></PureNav>
-  <div class="container">
+    <div >
       <h1>Welcome </h1>
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint distinctio deserunt earum ullam soluta dolores </p>
       <p>{{ $t('welcome') }}</p>
@@ -10,7 +9,7 @@
 <script setup lang="ts">
 
 definePageMeta({
-    layout: 'pureteme',
+    layout: '3dlayout',
 })
 </script>
 
