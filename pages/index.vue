@@ -1,4 +1,5 @@
 <template>
+  <PureNav></PureNav>
   <div class="container">
       <h1>Welcome </h1>
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint distinctio deserunt earum ullam soluta dolores </p>
@@ -8,6 +9,9 @@
 
 <script setup lang="ts">
 
+definePageMeta({
+    layout: 'pureteme',
+})
 </script>
 
 <style scoped>
