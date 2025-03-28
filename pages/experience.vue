@@ -7,7 +7,9 @@
   </template>
   
   <script setup lang="ts">
-  
+  definePageMeta({
+    layout: '3dlayout',
+  })
   </script>
   
   <style scoped>

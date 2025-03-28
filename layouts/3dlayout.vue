@@ -1,7 +1,7 @@
 <template>
 <nav>
   <ul>
-    <li>
+    <li @click="goTo('/')">
       <div class="home-icon">
         <div class="roof">
           <div class="roof-edge"></div>
@@ -9,7 +9,7 @@
         <div class="front"></div>
       </div>
     </li>
-    <li>
+    <li @click="goTo('about')">
       <div class="about-icon">
         <div class="head">
           <div class="eyes"></div>
@@ -36,18 +36,26 @@
 </nav>
 
 <section>
-  <h1>3d rotating navigation</h1>
-  <h2>+ CSS Icons</h2>
   <slot />
 </section>
 </template>
-<style>
-*,*:before,*:after {
-	box-sizing: border-box;
+<script setup lang="ts">
+
+function goTo(page : string) {
+	console.log('to '+ page);
+	
+	navigateTo(page)
 }
+</script>
+<style>
 
 :after {
 	content: "";
+}
+
+section {
+  position: relative;
+  left: 100px;
 }
 
 h1 { 
@@ -67,13 +75,13 @@ h2 {
 
 body {
   padding: 100px 0;
-	background: lightblue;
+  background: lightblue;
   color: white;
-  max-width:640px;
-	font-family: 'Montserrat', sans-serif;
-	font-size: 14px;
+  /* max-width:640px; */
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
   line-height:1.4;
-  font-smoothing: anti-aliased;
+  /* font-smoothing: anti-aliased; */
 }
 
 nav {
@@ -92,7 +100,7 @@ nav ul li {
 	position: relative;
   width: 70px;
   cursor: pointer;
-	background: crimson;
+	background: rgb(1, 29, 53);
 	text-transform: uppercase;
 	transition:all .4s ease-out;
 }
