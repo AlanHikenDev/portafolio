@@ -1,5 +1,13 @@
 <template>
+	<div>
+		
 <nav>
+	<div class="me">
+		<div>
+			<p> menu floante</p>
+
+		</div>
+	</div>
   <ul>
     <li @click="goTo('/')">
       <div class="home-icon">
@@ -17,7 +25,7 @@
         </div>
       </div>
     </li>
-    <li>
+    <li  @click="goTo('work')">
       <div class="work-icon">
         <div class="paper"></div>
         <div class="lines"></div>
@@ -25,7 +33,7 @@
         <div class="lines"></div>
       </div>
     </li>
-    <li>
+    <li  @click="goTo('contact')">
       <div class="mail-icon">
         <div class="mail-base">
           <div class="mail-top"></div>
@@ -38,6 +46,8 @@
 <section>
   <slot />
 </section>
+
+</div>
 </template>
 <script setup lang="ts">
 
@@ -47,7 +57,19 @@ function goTo(page : string) {
 	navigateTo(page)
 }
 </script>
-<style>
+<style scoped>
+
+.menu-flotante {
+    position: fixed; /* Fija el elemento en la pantalla */
+    left: 20px; /* Lo posiciona a la izquierda */
+    top: 50%; /* Centra verticalmente */
+    transform: translateY(-50%); /* Ajuste fino para centrarlo exactamente */
+    background-color: #333; /* Color de fondo */
+    color: white; /* Color del texto */
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+}
 
 :after {
 	content: "";
@@ -85,10 +107,10 @@ body {
 }
 
 nav {
-  float: left;
+    float: left;
 	position: relative;
 	top: 0;
-  left: 0;
+    left: 0;
 	background: transparent;
 }
 
